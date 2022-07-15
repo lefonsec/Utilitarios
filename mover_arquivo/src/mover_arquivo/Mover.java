@@ -14,6 +14,7 @@ public class Mover {
 		File destinationFile = new File(destinationPath + sourceFile.getName());
 		try {
 			Files.copy(sourceFile.toPath(), destinationFile.toPath(),StandardCopyOption.REPLACE_EXISTING);
+			sourceFile.delete();
 		} catch (Exception e) {
 			System.out.println(e); 
 		}

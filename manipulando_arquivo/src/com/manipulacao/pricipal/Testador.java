@@ -21,7 +21,7 @@ public class Testador {
 
 		try {
 			this.dataProc = subtrairData();
-			this.gravar.openFile();
+			gravar.openFile();
 			this.registro();
 			this.gravar.closeFile();
 		} catch (ParseException e) {
@@ -36,7 +36,6 @@ public class Testador {
 		subtrair.setTime(formatador.parse(this.dataExecucao));
 		subtrair.add(Calendar.DAY_OF_MONTH, -1);
 		return formatador.format(subtrair.getTime());
-
 	}
 
 	private boolean registro() {

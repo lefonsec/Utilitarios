@@ -7,9 +7,9 @@ import java.io.IOException;
 
 public class FileWirterr {
 
-	private final String SEPARADOR = System.getProperty("File.separador");
-	private final String NOME_ARQUIVO = "biv.dat";
-	private final String CAMINHO = SEPARADOR + "soft" + SEPARADOR + "big" + SEPARADOR + NOME_ARQUIVO;
+//	private final String SEPARADOR = System.getProperty("File.separador");
+	private final String NOME_ARQUIVO = "biv.txt";
+	private final String CAMINHO =  "D:\\workspace\\" + NOME_ARQUIVO;
 
 	private File file = new File(CAMINHO);
 	private FileWriter writer = null;
@@ -19,6 +19,7 @@ public class FileWirterr {
 		try {
 			this.writer = new FileWriter(file, true);
 			this.bufferedWriter = new BufferedWriter(this.writer);
+			System.out.println("chegou aqui");
 
 		} catch (Exception e) {
 			e.printStackTrace();
