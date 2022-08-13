@@ -4,23 +4,23 @@ import java.io.BufferedWriter;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class FileWirterr {
 
-//	private final String SEPARADOR = System.getProperty("File.separador");
-	private final String NOME_ARQUIVO = "biv.txt";
-	private final String CAMINHO =  "D:\\workspace\\" + NOME_ARQUIVO;
+	private static final String NOME_ARQUIVO = "bigv2" + (new SimpleDateFormat("yyyyMMdd")).format(new Date()) + ".txt";
+	private static final String CAMINHO = File.separator + "arq" + File.separator + "ziapado" + File.separator
+			+ NOME_ARQUIVO;
 
-	private File file = new File(CAMINHO);
+	private File file = new File(FileWirterr.CAMINHO);
 	private FileWriter writer = null;
 	private BufferedWriter bufferedWriter = null;
 
 	public boolean openFile() {
 		try {
-			this.writer = new FileWriter(file, true);
+			this.writer = new FileWriter(file, false);
 			this.bufferedWriter = new BufferedWriter(this.writer);
-			System.out.println("chegou aqui");
-
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -44,10 +44,10 @@ public class FileWirterr {
 			this.bufferedWriter.write(linha);
 			this.bufferedWriter.newLine();
 			this.bufferedWriter.flush();
-		}catch (Exception e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
+
 		return true;
 	}
 

@@ -5,6 +5,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.List;
+import java.util.Set;
 
 import com.detail.Detalhe;
 import com.detail.Tabela;
@@ -19,14 +20,10 @@ public class Testador {
 
 	public void principal() {
 
-		try {
-			this.dataProc = subtrairData();
-			gravar.openFile();
-			this.registro();
-			this.gravar.closeFile();
-		} catch (ParseException e) {
-			e.printStackTrace();
-		}
+		// this.dataProc = subtrairData();
+		gravar.openFile();
+		this.registro();
+		this.gravar.closeFile();
 
 	}
 
@@ -39,27 +36,28 @@ public class Testador {
 	}
 
 	private boolean registro() {
+		// retorna uma lista
 		List<Tabela> listaRegistro = new ArrayList<>();
-		this.gravarRegistro(listaRegistro);
-
+		listaRegistro.add(new Tabela("arnaldo", "12", "conteudo"));
+		this.gravarRegistro1(listaRegistro);
 		return true;
 	}
 
-	private boolean gravarRegistro(List<Tabela> listaOf) {
+	private boolean gravarRegistro1(List<Tabela> listaRegistro) {
 
-		for (Tabela tabela : listaOf) {
+		for (Tabela tabela : listaRegistro) {
 			Detalhe detalhe = new Detalhe();
-			detalhe.setCodDestino("1098");
-			detalhe.setDataReferencia(dataProc);
-			detalhe.setDataHora(tabela.getFormatos());
+			detalhe.setNome(tabela.getNome());
+			detalhe.setIdade(tabela.getIdade());
+			detalhe.setFormatos(tabela.getFormatos());
 
 			this.gravar.gravaLinha(detalhe.toString());
 		}
 
 		return true;
 	}
-
-	//pega a posição da string e corta a string.
+	
+	// pega a posição da string e corta a string.
 	public String PegaConsentId() {
 		System.out.println(conteudo.lastIndexOf("urn"));
 		System.out.println(conteudo);

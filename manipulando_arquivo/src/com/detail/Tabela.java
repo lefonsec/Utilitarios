@@ -2,9 +2,17 @@ package com.detail;
 
 public class Tabela {
 
-	private String nome = "leonardo";
-	private String idade = "12";
-	private String formatos = "asdfg";
+	private String nome;
+	private String idade;
+	private String formatos;
+	
+
+	public Tabela(String nome, String idade, String formatos) {
+		super();
+		this.nome = nome;
+		this.idade = idade;
+		this.formatos = formatos;
+	}
 
 	public String getNome() {
 		return nome;
@@ -28,6 +36,6 @@ public class Tabela {
 
 	public void setFormatos(String formatos) {
 		this.formatos = formatos;
-	}
+	}	
 
 }
