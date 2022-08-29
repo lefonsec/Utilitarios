@@ -18,7 +18,7 @@ public class Contador {
 				lineNumberReader.skip(Long.MAX_VALUE);
 				int lineNumber =lineNumberReader.getLineNumber();
 			
-				System.out.println(lineNumber);
+				System.out.println(lineNumber + "  " + line);
 			}
 			fileReader.close();
 			

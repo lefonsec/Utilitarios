@@ -39,6 +39,10 @@ public class Testador {
 		// retorna uma lista
 		List<Tabela> listaRegistro = new ArrayList<>();
 		listaRegistro.add(new Tabela("arnaldo", "12", "conteudo"));
+		listaRegistro.add(new Tabela("MARCELO", "12", "conteudo"));
+		listaRegistro.add(new Tabela("aGNALDO", "12", "conteudo"));
+		listaRegistro.add(new Tabela("MYLEna TE AMO ", "12", "conteudo"));
+		listaRegistro.add(new Tabela("arnaldo", "12", "conteudo"));
 		this.gravarRegistro1(listaRegistro);
 		return true;
 	}
@@ -63,5 +67,18 @@ public class Testador {
 		System.out.println(conteudo);
 
 		return conteudo.substring(conteudo.lastIndexOf("urn"), 22);
+	}
+	
+	//metodo para pegar o posição em um array
+	public void pegaPosicação() {
+		List<Tabela> listaRegistro = new ArrayList<>();
+		for(Tabela tabela : listaRegistro) {
+			String linha = tabela.toString();
+			//tira substitui a barra por espaço em branco
+			linha = linha.replace("\"", "");
+			//pega campo pelo divisor.
+			String[] col = linha.split(";");
+			System.out.println(col[0]);
+		}
 	}
 }
